@@ -1,0 +1,132 @@
+import { useState, useEffect, useRef } from "react";
+import { X, Loader2, Heart, Play } from "lucide-react";
+
+interface AdModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const AdModal = ({ isOpen, onClose }: AdModalProps) => {
+  const [timeLeft, setTimeLeft] = useState(30); // 30 Seconds Timer
+  const [canSkip, setCanSkip] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Reset Timer
+      setTimeLeft(30);
+      setCanSkip(false);
+
+      // Auto-play video if ref exists
+      if (videoRef.current) {
+        videoRef.current
+          .play()
+          .catch((e) => console.log("Autoplay blocked", e));
+      }
+
+      const timer = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            setCanSkip(true);
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4">
+      <div className="w-full max-w-lg bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col relative">
+        {/* Top Bar: Timer & Status */}
+        <div className="flex items-center justify-between p-4 border-b border-white/5 bg-black">
+          <span className="text-xs font-mono text-gray-400 uppercase tracking-wider flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            Ad Breaks
+          </span>
+          <span className="text-sm font-bold text-white font-mono">
+            {timeLeft > 0
+              ? `00:${timeLeft < 10 ? `0${timeLeft}` : timeLeft}`
+              : "Reward Granted"}
+          </span>
+        </div>
+
+        {/* VIDEO PLAYER AREA */}
+        <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
+          {/* Simulation Video (Placeholder for Ad Network Video) */}
+          <video
+            ref={videoRef}
+            src="https://videos.pexels.com/video-files/3129671/3129671-sd_640_360_25fps.mp4"
+            className="w-full h-full object-cover opacity-80"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+
+          {/* Overlay if video fails or loading */}
+          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded text-xs text-white border border-white/10">
+            Sponsored Content
+          </div>
+        </div>
+
+        {/* PROGRESS BAR */}
+        <div className="w-full h-1 bg-gray-800">
+          <div
+            className="h-full bg-cyan-500 transition-all duration-1000 ease-linear"
+            style={{ width: `${((30 - timeLeft) / 30) * 100}%` }}
+          ></div>
+        </div>
+
+        {/* CONTENT & MESSAGE */}
+        <div className="p-6 text-center">
+          <h3 className="text-xl font-bold text-white mb-2">
+            Server Support Check
+          </h3>
+
+          {/* USER MESSAGE REQUESTED */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed flex flex-col items-center gap-2">
+              <Heart className="text-red-500 fill-red-500/20" size={24} />
+              <span>
+                "Watching this short video directly supports our
+                high-performance GPU costs, allowing us to keep these AI models
+                running 24/7 for free."
+              </span>
+            </p>
+          </div>
+
+          {/* ACTION BUTTON */}
+          <button
+            onClick={onClose}
+            disabled={!canSkip}
+            className={`w-full py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 ${
+              canSkip
+                ? "bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.4)] cursor-pointer transform hover:scale-[1.02]"
+                : "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
+            }`}
+          >
+            {!canSkip ? (
+              <>
+                <Loader2 className="animate-spin" size={20} />
+                Reward in {timeLeft}s
+              </>
+            ) : (
+              <>
+                <Play size={20} fill="currentColor" /> Continue to Tool
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AdModal;
