@@ -16,6 +16,9 @@ import Pricing from "@/pages/Pricing"; // New Page
 // Tool Components
 import DetectorTool from "@/components/DetectorTool"; // Logic extracted from old App.tsx
 import Humanizer from "@/components/Humanizer";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
+import Refund from "@/pages/Refund";
 
 const App = () => {
   return (
@@ -29,6 +32,9 @@ const App = () => {
         <Route path="/blog/:id" element={<BlogPostView />} />
         <Route path="/tools" element={<ToolsIndex />} /> {/* Grid View */}
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/refund" element={<Refund />} />
       </Route>
 
       {/* === LAYOUT 2: TOOL DASHBOARD (Sidebar + Hamburger) === */}
