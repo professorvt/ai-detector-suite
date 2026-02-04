@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+---
+title: Free AI Detector & Humanizer (Unlimited)
+emoji: 🛡️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+license: mit
+short_description: Detect AI text & Humanize it for free. No Login.
+tags:
+  - ai-detector
+  - ai-humanizer
+  - chatgpt-checker
+  - undetectable-ai
+  - humanize-text
+  - free-ai-tools
+  - gptzero-alternative
+  - bypass-ai-detection
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛡️ Free AI Detector & Humanizer Suite
 
-Currently, two official plugins are available:
+**The only free tool to Detect AND Humanize AI text instantly. No Signup. 100% Private.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Stop paying for tools like **Undetectable.ai**, **StealthWriter**, or **GPTZero**. This suite allows you to check if your text sounds like AI, and if it does, use our **Humanizer** tool to make it sound natural.
 
-## React Compiler
+### 🚀 Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **🕵️ AI Detector:** Accurately spots ChatGPT, GPT-4, Gemini, and Claude text.
+- **✍️ AI Humanizer:** Converts robotic AI text into natural human writing to **bypass detection**.
+- **🔒 Privacy First:** Runs in a secure Docker container. We never store your essays or data.
+- **💸 100% Free:** No credit/word limits. No hidden fees.
 
-## Expanding the ESLint configuration
+### 🔍 How to use
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Check:** Paste text to see the AI Score.
+2.  **Humanize:** If the score is high, click "Humanize" to rewrite it instantly.
+3.  **Verify:** Re-check the text to confirm it passes detection.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🛠️ Technical Details
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Engine:** Advanced NLP Analysis (Perplexity & Burstiness)
+- **Platform:** Docker on Hugging Face Spaces
+- **Privacy:** Sandboxed Environment
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### SEO Tags
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+_Free AI Humanizer, AI to Human Text Converter, Bypass GPTZero, Remove AI Detection, ChatGPT Rewriter, Make AI Text Human, Turnitin Bypass Free._
