@@ -121,12 +121,9 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
   const { analyzeText, result, loading, clearResult } = useAIAnalysis();
   const [inputText, setInputText] = useState("");
 
-  // ✅ 2. Ad State banaya
   const [showAd, setShowAd] = useState(false);
 
-  // ✅ 3. Page Load hone par Ad chalu kiya
   useEffect(() => {
-    // 1 second ka delay taaki user pehle page dekh le, phir ad aaye
     const timer = setTimeout(() => {
       setShowAd(true);
     }, 1000);
@@ -142,7 +139,6 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
 
   return (
     <div className="flex flex-col max-w-7xl mx-auto w-full h-full p-4 lg:p-8">
-      {/* ✅ 4. Yahan Modal ko render kiya */}
       <AdModal isOpen={showAd} onClose={() => setShowAd(false)} />
 
       <SEO
@@ -158,10 +154,15 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
           Paste text below to check for GPT-4 & Claude signatures.
         </p>
       </div>
-
-      <div className="flex-shrink-0 mb-4">
-        <AdBanner position="Top" darkMode={darkMode} />
+      {/* 
+      <div className="flex-shrink-0 mb-4"> */}
+      <div className="w-full flex justify-center mb-6">
+        <div className="w-full max-w-[728px] min-h-[90px] bg-white/5 border border-white/10 rounded-lg flex items-center justify-center overflow-hidden">
+          <AdBanner position="Top" darkMode={darkMode} />
+        </div>
       </div>
+      {/* <AdBanner position="Top" darkMode={darkMode} /> */}
+      {/* </div> */}
 
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-[500px]">
         {/* Input Area */}
@@ -222,8 +223,13 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
         </div>
       </div>
 
-      <div className="mt-6">
+      {/* <div className="mt-6">
         <AdBanner position="Bottom" darkMode={darkMode} />
+      </div> */}
+      <div className="w-full flex justify-center mt-6">
+        <div className="w-full max-w-[728px] min-h-[90px] bg-white/5 border border-white/10 rounded-lg flex items-center justify-center overflow-hidden">
+          <AdBanner position="Bottom" darkMode={darkMode} />
+        </div>
       </div>
     </div>
   );

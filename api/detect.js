@@ -41,16 +41,13 @@
 // }
 
 export default async function handler(req, res) {
- 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
- 
   const PRIVATE_BACKEND_URL = process.env.PRIVATE_BACKEND_URL;
   const HF_TOKEN = process.env.HF_TOKEN;
 
-  
   if (!PRIVATE_BACKEND_URL || !HF_TOKEN) {
     return res
       .status(500)
@@ -58,23 +55,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    
     const backendResponse = await fetch(
       `${PRIVATE_BACKEND_URL}/detect_ai_detailed`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${HF_TOKEN}`, 
+          Authorization: `Bearer ${HF_TOKEN}`,
         },
         body: JSON.stringify(req.body),
       },
     );
 
-    
     const data = await backendResponse.json();
 
-   
     return res.status(200).json(data);
   } catch (error) {
     console.error("Proxy Error:", error);

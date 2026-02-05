@@ -1,0 +1,25 @@
+html if you htmlversion
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0866759794403629"
+     crossorigin="anonymous"></script>
+<!-- AI_Tool_Ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0866759794403629"
+     data-ad-slot="4154223492"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+if you use amp veriosn
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+<amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-0866759794403629"
+     data-ad-slot="4154223492"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
