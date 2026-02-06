@@ -1,6 +1,4 @@
-import { Check, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
-
+import { Check } from "lucide-react";
 const Pricing = () => {
   const plans = [
     {

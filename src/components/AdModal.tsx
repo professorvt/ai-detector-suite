@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { X, Loader2, Heart, Play } from "lucide-react";
+import { Loader2, Heart, Play } from "lucide-react";
 
 interface AdModalProps {
   isOpen: boolean;
