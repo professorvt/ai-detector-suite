@@ -27,7 +27,7 @@ interface AdBannerProps {
 // Global declaration for Adsense
 declare global {
   interface Window {
-    adsbygoogle: any[];
+    adsbygoogle: unknown[];
   }
 }
 

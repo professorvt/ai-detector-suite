@@ -18,8 +18,8 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) =>
             path.replace(/^\/api\/detect/, "/detect_ai_detailed"),
-          configure: (proxy, options) => {
-            proxy.on("proxyReq", (proxyReq, req, res) => {
+          configure: (proxy) => {
+            proxy.on("proxyReq", (proxyReq) => {
               proxyReq.setHeader("Authorization", `Bearer ${env.HF_TOKEN}`);
             });
           },

@@ -139,7 +139,11 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
 
   return (
     <div className="flex flex-col max-w-7xl mx-auto w-full h-full p-4 lg:p-8">
-      <AdModal isOpen={showAd} onClose={() => setShowAd(false)} />
+      <AdModal
+        key={showAd ? "open" : "closed"}
+        isOpen={showAd}
+        onClose={() => setShowAd(false)}
+      />
 
       <SEO
         title="AI Detector Tool"

@@ -13,10 +13,6 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
-      // Reset Timer
-      setTimeLeft(30);
-      setCanSkip(false);
-
       // Auto-play video if ref exists
       if (videoRef.current) {
         videoRef.current
