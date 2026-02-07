@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Loader2, Heart, Play } from "lucide-react";
+import MonetagBox from "@/components/MonetagBox";
 
 interface AdModalProps {
   isOpen: boolean;
@@ -56,7 +57,7 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
         {/* VIDEO PLAYER AREA */}
         <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
           {/* Simulation Video (Placeholder for Ad Network Video) */}
-          <video
+          {/* <video
             ref={videoRef}
             src="https://videos.pexels.com/video-files/3129671/3129671-sd_640_360_25fps.mp4"
             className="w-full h-full object-cover opacity-80"
@@ -64,7 +65,11 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
             muted
             loop
             playsInline
-          />
+          /> */}
+
+          <div className="absolute inset-0 z-10">
+            <MonetagBox zoneId="10581081" />
+          </div>
 
           {/* Overlay if video fails or loading */}
           <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded text-xs text-white border border-white/10">

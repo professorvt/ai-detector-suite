@@ -43,3 +43,4 @@ dist-ssr/
 
 #folder and files
 backend/
+*.txt
