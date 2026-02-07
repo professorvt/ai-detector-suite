@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, Zap } from "lucide-react";
-// import AdBanner from "@/components/AdBanner";
+import AdBanner from "./AdBanner";
+import SEO from "./SEO";
 
 const HomeContent = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
+      <SEO
+        title="AI Suite - Free Detector & Humanizer"
+        description="Verify content authenticity with our advanced dual-engine AI detection."
+      />
+
       {/* HERO SECTION */}
       <div className="w-full max-w-5xl mx-auto text-center pt-24 pb-16 px-4">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-900/10 text-cyan-400 text-sm font-bold mb-6">
@@ -72,9 +78,9 @@ const HomeContent = () => {
         ))}
       </div>
 
-      {/* <div className="w-full max-w-4xl mx-auto px-4 pb-20">
+      <div className="w-full max-w-4xl mx-auto px-4 pb-20">
         <AdBanner position="Bottom" darkMode={true} />
-      </div> */}
+      </div>
     </div>
   );
 };

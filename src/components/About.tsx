@@ -1,12 +1,12 @@
 import { Shield, Users, Zap, Globe, Heart } from "lucide-react";
-import SEO from "@/components/SEO";
+import SEO from "./SEO";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-20">
       <SEO
-        title="About Us"
-        description="Learn about AI Suite's mission to provide free, high-accuracy AI detection and humanization tools for creators, students, and businesses."
+        title="About Us - AI Suite"
+        description="Our mission to bring transparency to AI content."
       />
 
       <div className="max-w-6xl mx-auto">

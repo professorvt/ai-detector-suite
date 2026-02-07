@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 import { Scan, Sparkles, ArrowRight } from "lucide-react";
-import SEO from "@/components/SEO";
 
 const ToolsIndex = () => {
   return (
     <div className="min-h-screen bg-black text-white py-20 px-6">
-      <SEO
-        title="All Free AI Tools"
-        description="Explore our complete collection of free AI tools. From AI Detectors to Text Humanizers, enhance your content creation workflow with AI Suite today."
-      />
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-black mb-12 text-center">
           AI Tools Suite

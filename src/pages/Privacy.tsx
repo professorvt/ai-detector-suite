@@ -1,12 +1,8 @@
-import SEO from "@/components/SEO";
+
 
 const Privacy = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-200">
-      <SEO
-        title="Privacy Policy"
-        description="Privacy Policy for AI Detector Suite. Learn how we collect, use, and protect your data when using our AI tools."
-      />
       <h1 className="text-3xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">
         Privacy Policy
       </h1>

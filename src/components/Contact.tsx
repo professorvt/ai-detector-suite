@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail, MessageSquare, Send } from "lucide-react";
-import SEO from "@/components/SEO";
+import SEO from "./SEO";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,9 +20,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-20">
       <SEO
-        title="Contact Us"
-        description="Get in touch with the AI Suite team. We are here to help with any questions regarding our AI tools, pricing, or partnerships."
+        title="Contact Support - AI Suite"
+        description="Get in touch with our team."
       />
+
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* LEFT SIDE: INFO */}
         <div>

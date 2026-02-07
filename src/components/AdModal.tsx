@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Loader2, Heart, Play } from "lucide-react";
-// ✅ Import kiya naya component
-import MonetagBox from "@/components/MonetagBox";
 
 interface AdModalProps {
   isOpen: boolean;
@@ -9,12 +7,19 @@ interface AdModalProps {
 }
 
 const AdModal = ({ isOpen, onClose }: AdModalProps) => {
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(30); // 30 Seconds Timer
   const [canSkip, setCanSkip] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  // ✅ Timer Logic
   useEffect(() => {
     if (isOpen) {
+      // Auto-play video if ref exists
+      if (videoRef.current) {
+        videoRef.current
+          .play()
+          .catch((e) => console.log("Autoplay blocked", e));
+      }
+
       const timer = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
@@ -35,7 +40,7 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4">
       <div className="w-full max-w-lg bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col relative">
-        {/* Top Bar: Timer & Status (Design Same) [cite: 134-135] */}
+        {/* Top Bar: Timer & Status */}
         <div className="flex items-center justify-between p-4 border-b border-white/5 bg-black">
           <span className="text-xs font-mono text-gray-400 uppercase tracking-wider flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
@@ -48,17 +53,25 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
           </span>
         </div>
 
-        {/* VIDEO PLAYER AREA (Modified to hold MonetagBox) [cite: 136] */}
+        {/* VIDEO PLAYER AREA */}
         <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
-          {/* ✅ Yahan Video hatakar MonetagBox lagaya */}
-          <div className="absolute inset-0 z-10">
-            <MonetagBox zoneId="10581081" />
-          </div>
-          {/* Overlay Tag */}
-          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded text-xs text-white border border-white/10 z-20 pointer-events-none">
+          {/* Simulation Video (Placeholder for Ad Network Video) */}
+          <video
+            ref={videoRef}
+            src="https://videos.pexels.com/video-files/3129671/3129671-sd_640_360_25fps.mp4"
+            className="w-full h-full object-cover opacity-80"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+
+          {/* Overlay if video fails or loading */}
+          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded text-xs text-white border border-white/10">
             Sponsored Content
           </div>
         </div>
+
         {/* PROGRESS BAR */}
         <div className="w-full h-1 bg-gray-800">
           <div
@@ -66,11 +79,14 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
             style={{ width: `${((30 - timeLeft) / 30) * 100}%` }}
           ></div>
         </div>
+
         {/* CONTENT & MESSAGE */}
         <div className="p-6 text-center">
           <h3 className="text-xl font-bold text-white mb-2">
             Server Support Check
           </h3>
+
+          {/* USER MESSAGE REQUESTED */}
           <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
             <p className="text-gray-300 text-sm leading-relaxed flex flex-col items-center gap-2">
               <Heart className="text-red-500 fill-red-500/20" size={24} />
@@ -81,6 +97,7 @@ const AdModal = ({ isOpen, onClose }: AdModalProps) => {
               </span>
             </p>
           </div>
+
           {/* ACTION BUTTON */}
           <button
             onClick={onClose}
