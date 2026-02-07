@@ -1,6 +1,12 @@
+import SEO from "@/components/SEO";
+
 const Refund = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800 dark:text-gray-200">
+      <SEO
+        title="Refund Policy"
+        description="Refund and Cancellation Policy for AI Suite. Understand our refund terms for digital services and premium plans."
+      />
       <h1 className="text-3xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">
         Refund & Cancellation Policy
       </h1>

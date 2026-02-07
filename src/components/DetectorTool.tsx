@@ -16,20 +16,6 @@
 //     if (score > 75) return "bg-red-500/20 border-b border-red-500 text-red-200";
 //     if (score > 40)
 //       return "bg-yellow-500/20 border-b border-yellow-500 text-yellow-200";
-//     return "bg-green-500/20 text-green-200";
-//   };
-
-//   return (
-//     <div className="flex flex-col max-w-7xl mx-auto w-full h-full p-4 lg:p-8">
-//       <SEO
-//         title="AI Detector Tool"
-//         description="Professional AI Content Scanner."
-//       />
-
-//       <div className="mb-6">
-//         <h1 className="text-3xl font-bold text-white tracking-tight">
-//           AI Detector
-//         </h1>
 //         <p className="text-gray-400">
 //           Paste text below to check for GPT-4 & Claude signatures.
 //         </p>
@@ -110,8 +96,8 @@ import { useState, useEffect } from "react";
 import { useAIAnalysis } from "@/hooks/useAIAnalysis";
 import ResultDisplay from "@/components/ResultDisplay";
 import AdBanner from "@/components/AdBanner";
+import AdModal from "@/components/AdModal";
 import SEO from "@/components/SEO";
-import AdModal from "@/components/AdModal"; // ✅ 1. Import kiya
 
 interface DetectorToolProps {
   darkMode: boolean;
@@ -138,16 +124,19 @@ const DetectorTool = ({ darkMode }: DetectorToolProps) => {
   };
 
   return (
-    <div className="flex flex-col max-w-7xl mx-auto w-full h-full p-4 lg:p-8">
+    <div
+      className={`min-h-screen transition-colors duration-300 ${darkMode ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}
+    >
+      <SEO
+        title="AI Content Detector - 99% Accurate"
+        description="Check if text is written by AI or Human. Our free AI Detector scans content from ChatGPT, Claude, and Gemini to ensure authenticity and bypass AI detection."
+      />
+
+      {/* Ad Modal */}
       <AdModal
         key={showAd ? "open" : "closed"}
         isOpen={showAd}
         onClose={() => setShowAd(false)}
-      />
-
-      <SEO
-        title="AI Detector Tool"
-        description="Professional AI Content Scanner."
       />
 
       <div className="mb-6">

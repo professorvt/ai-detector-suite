@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, Zap } from "lucide-react";
-import AdBanner from "./AdBanner";
-import SEO from "./SEO";
+import AdBanner from "@/components/AdBanner";
+import SEO from "@/components/SEO";
 
 const HomeContent = () => {
   return (
-    <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
       <SEO
-        title="AI Suite - Free Detector & Humanizer"
-        description="Verify content authenticity with our advanced dual-engine AI detection."
+        title="Free AI Detector & Humanizer Tool"
+        description="Detect AI content and humanize text instantly. AI Suite offers free tools to bypass AI detectors like GPTZero, Turnitin, and Originality.ai with 99% accuracy."
       />
 
       {/* HERO SECTION */}

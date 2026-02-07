@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import SEO from "@/components/SEO";
 const Pricing = () => {
   const plans = [
     {
@@ -43,6 +44,10 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen bg-black text-white py-20 px-4">
+      <SEO
+        title="Pricing Plans"
+        description="Affordable pricing for premium AI detection and humanization features. Choose the best plan for students, writers, and professionals."
+      />
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
           Upgrade Your Power

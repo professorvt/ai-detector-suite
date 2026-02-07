@@ -1,10 +1,13 @@
 import type { AnalysisResult } from "@/types/api";
+import { useNavigate } from "react-router-dom";
 
 interface ResultDisplayProps {
   result: AnalysisResult | null;
 }
 
 const ResultDisplay = ({ result }: ResultDisplayProps) => {
+  const navigate = useNavigate();
+
   if (!result) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center text-gray-500 opacity-60">
@@ -54,7 +57,18 @@ const ResultDisplay = ({ result }: ResultDisplayProps) => {
 
       {/* Action Button */}
       {result.total_score > 20 && (
-        <button className="mt-auto w-full py-3 rounded-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/20 hover:scale-[1.02] transition-transform">
+        <button
+          onClick={() =>
+            navigate("/tool/humanizer", {
+              state: {
+                text: result.sentences.map((s) => s.text).join(" "),
+                score: result.total_score,
+                aiSentences: result.sentences, // Pass detail for highlighting
+              },
+            })
+          }
+          className="mt-auto w-full py-3 rounded-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/20 hover:scale-[1.02] transition-transform"
+        >
           ✨ Humanize & Remove AI
         </button>
       )}

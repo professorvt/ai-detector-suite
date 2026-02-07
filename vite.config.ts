@@ -24,6 +24,16 @@ export default defineConfig(({ mode }) => {
             });
           },
         },
+        "/api/humanize": {
+          target: env.PRIVATE_BACKEND_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/humanize/, "/humanize_seo"),
+          configure: (proxy) => {
+            proxy.on("proxyReq", (proxyReq) => {
+              proxyReq.setHeader("Authorization", `Bearer ${env.HF_TOKEN}`);
+            });
+          },
+        },
       },
     },
   };
