@@ -18,7 +18,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white pt-24 pb-12 px-4 selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-black text-white px-6 py-20">
       <SEO
         title="Contact Us"
         description="Get in touch with the AI Suite team. We are here to help with any questions regarding our AI tools, pricing, or partnerships."

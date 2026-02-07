@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 
 const About = () => {
   return (
-    <div className="bg-black min-h-screen text-white pt-24 pb-12 px-4 selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-black text-white px-6 py-20">
       <SEO
         title="About Us"
         description="Learn about AI Suite's mission to provide free, high-accuracy AI detection and humanization tools for creators, students, and businesses."

@@ -1,16 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Shield, Zap } from "lucide-react";
-import AdBanner from "@/components/AdBanner";
-import SEO from "@/components/SEO";
+// import AdBanner from "@/components/AdBanner";
 
 const HomeContent = () => {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
-      <SEO
-        title="Free AI Detector & Humanizer Tool"
-        description="Detect AI content and humanize text instantly. AI Suite offers free tools to bypass AI detectors like GPTZero, Turnitin, and Originality.ai with 99% accuracy."
-      />
-
+    <div className="min-h-screen bg-black text-white">
       {/* HERO SECTION */}
       <div className="w-full max-w-5xl mx-auto text-center pt-24 pb-16 px-4">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-900/10 text-cyan-400 text-sm font-bold mb-6">
@@ -78,9 +72,9 @@ const HomeContent = () => {
         ))}
       </div>
 
-      <div className="w-full max-w-4xl mx-auto px-4 pb-20">
+      {/* <div className="w-full max-w-4xl mx-auto px-4 pb-20">
         <AdBanner position="Bottom" darkMode={true} />
-      </div>
+      </div> */}
     </div>
   );
 };

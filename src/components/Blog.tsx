@@ -10,7 +10,7 @@ const Blog = () => {
   });
 
   return (
-    <div className="bg-black min-h-screen text-white pt-24 pb-12 px-4 selection:bg-cyan-500/30">
+    <div className="min-h-screen w-full bg-[#050505] text-white p-6 lg:p-12 overflow-y-auto">
       <SEO
         title="AI & Tech Blog"
         description="Stay updated with the latest trends in AI, content writing, and SEO. Read expert articles on how to bypass AI detection and improve content quality."
